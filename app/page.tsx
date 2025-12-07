@@ -1,9 +1,11 @@
 import FishAnimation from "@/components/FishAnimation";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   return (
     <div className="h-screen flex items-center justify-center relative">
       <FishAnimation />
+      <ThemeToggle />
       <main className="container">
         <h1 className="logo-text">Manas Kumar Thakur</h1>
         

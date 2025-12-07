@@ -150,7 +150,10 @@ class Boid {
     ctx.translate(this.x, this.y);
     ctx.rotate(this.angle);
 
-    ctx.strokeStyle = this.isRed ? '#ff4444' : '#888888';
+    const fishColor = getComputedStyle(document.documentElement)
+      .getPropertyValue(this.isRed ? '--fish-red' : '--fish-color').trim();
+    
+    ctx.strokeStyle = fishColor;
     ctx.lineWidth = 2;
     ctx.lineCap = 'round';
     ctx.lineJoin = 'round';
