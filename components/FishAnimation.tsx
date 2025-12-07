@@ -16,7 +16,9 @@ class Boid {
     this.y = Math.random() * height;
     this.vx = (Math.random() - 0.5) * 2;
     this.vy = (Math.random() - 0.5) * 2;
-    this.size = 8;
+    // Responsive fish size based on screen width
+    const isMobile = width < 768;
+    this.size = isMobile ? 4 : 8;
     this.isRed = isRed;
     this.angle = 0;
   }
@@ -215,14 +217,32 @@ export default function FishAnimation() {
     if (!ctx) return;
 
     const resize = () => {
+      const prevWidth = canvas.width;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      
+      // Update fish sizes on resize
+      const isMobile = window.innerWidth < 768;
+      const wasMobile = prevWidth < 768;
+      const newSize = isMobile ? 4 : 8;
+      
+      boidsRef.current.forEach(boid => {
+        boid.size = newSize;
+      });
+      
+      // Reinitialize fish count if crossing mobile/desktop threshold
+      if (isMobile !== wasMobile) {
+        init();
+      }
     };
 
     const init = () => {
       boidsRef.current = [];
+      const isMobile = canvas.width < 768;
+      const fishCount = isMobile ? 30 : 80;
+      
       boidsRef.current.push(new Boid(canvas.width, canvas.height, true));
-      for (let i = 0; i < 80; i++) {
+      for (let i = 0; i < fishCount; i++) {
         boidsRef.current.push(new Boid(canvas.width, canvas.height, false));
       }
     };
