@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+#bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.container {
+  width: 100%;
+  max-width: 700px;
+  padding: 0 24px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.logo-text {
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #000;
+  letter-spacing: -0.02em;
+}
+
+.content {
+  pointer-events: auto;
+}
+
+.content p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+  color: #444;
+}
+
+.contact-info {
+  font-size: 1.5rem;
+  color: #444;
+}
+
+a {
+  color: #6b9aff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.email {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 600;
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .logo-text {
+    font-size: 3rem;
+  }
+  .content p {
+    font-size: 1.2rem;
+  }
+}
