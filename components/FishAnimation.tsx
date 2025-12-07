@@ -18,7 +18,7 @@ class Boid {
     this.vy = (Math.random() - 0.5) * 2;
     // Responsive fish size based on screen width
     const isMobile = width < 768;
-    this.size = isMobile ? 4 : 8;
+    this.size = isMobile ? 6 : 8;
     this.isRed = isRed;
     this.angle = 0;
   }
@@ -224,7 +224,7 @@ export default function FishAnimation() {
       // Update fish sizes on resize
       const isMobile = window.innerWidth < 768;
       const wasMobile = prevWidth < 768;
-      const newSize = isMobile ? 4 : 8;
+      const newSize = isMobile ? 6 : 8;
       
       boidsRef.current.forEach(boid => {
         boid.size = newSize;
